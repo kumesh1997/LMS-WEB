@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js,jsx,ts}"],
   theme: {
     extend: {
       colors: {
@@ -9,7 +9,7 @@ module.exports = {
         "lms-dark-blue":"#285A84",
         "lms-light-blue":"#EEF6F3",
         "lms-black":"#000101",
-        "lms-white":"#FFFFFF"
+        "lms-white": "#FFFFFF",
       },
     },
   },
