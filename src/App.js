@@ -15,7 +15,7 @@ function App() {
       {/* <Signup/> */}
       {/* <SigninOutContainer/> */}
       <ShowCourses />
-      <Enroll />
+      {/* <Enroll /> */}
     </div>
   );
 }
