@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import CourseCard from '../../Components/CourseCard';
 import RoundedInput from '../../Components/RoundedInput';
 import Enroll from '../Enroll';
+import axios from '../../axios';
 
 function ShowCourses() {
+
+
   const [open, setOpen] = useState(false);
+  const [courses, setCourses] = useState([]);
 
   function handleClick() {
     setOpen(true);
@@ -13,6 +18,27 @@ function ShowCourses() {
   function CloseModel() {
     setOpen(false);
   }
+
+
+   useEffect (() =>{
+    const getCourses = async () => {
+      try {
+        let awaiVar = await axios.get('http://localhost:3006/course/getCourses') 
+        .then(function (response) {
+          console.log("Done")
+          console.log(response.data);
+          // console.log(response.data);
+          // setCourses(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      } catch (err) {
+        console.log(err);
+      }
+  }
+  getCourses();
+});
 
   return (
     <div id='show-courses' className=' m-2 bg-violet-200'>
@@ -26,50 +52,14 @@ function ShowCourses() {
           link='https://miro.medium.com/max/1200/1*2rKGJ6h1regwmfMcty3SLw.png'
           onClickHandler={handleClick}
         />
-        <CourseCard
-          name='Ddatabase Management Systems'
-          year='2020/2021'
-          link='https://s7280.pcdn.co/wp-content/uploads/2016/06/database-blue.png'
-          onClickHandler={handleClick}
-        />
-        <CourseCard name='Operation Mnanagement' year='2019/2020' onClickHandler={handleClick} />
-        <CourseCard
-          name='Information System Modelling'
-          year='2019/2020'
-          onClickHandler={handleClick}
-        />
-        <CourseCard
-          name='Data Stuctures & Algorithms'
-          year='2019/2020'
-          onClickHandler={handleClick}
-        />
-        <CourseCard
-          name='Ddatabase Management Systems'
-          year='2020/2021'
-          onClickHandler={handleClick}
-        />
-        <CourseCard name='Operation Mnanagement' year='2019/2020' onClickHandler={handleClick} />
-        <CourseCard
-          name='Information System Modelling'
-          year='2019/2020'
-          onClickHandler={handleClick}
-        />
-        <CourseCard
-          name='Data Stuctures & Algorithms'
-          year='2019/2020'
-          onClickHandler={handleClick}
-        />
-        <CourseCard
-          name='Ddatabase Management Systems'
-          year='2020/2021'
-          onClickHandler={handleClick}
-        />
-        <CourseCard name='Operation Mnanagement' year='2019/2020' onClickHandler={handleClick} />
-        <CourseCard
-          name='Information System Modelling'
-          year='2019/2020'
-          onClickHandler={handleClick}
-        />
+
+        {
+          courses.map((Acourse,key) => {
+            <CourseCard key={key} name={""} year='2019/2020' onClickHandler={handleClick}/>
+          })
+        }
+       
+        
       </div>
 
       {open && <Enroll closeModel={CloseModel} />}
