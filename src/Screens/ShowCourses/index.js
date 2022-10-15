@@ -34,7 +34,7 @@ function ShowCourses() {
 
    const arr = data.map((data,index) => {
     return (
-      <CourseCard key={index} name={data.courseName} courseId={data.courseId}/>
+      <CourseCard key={index} name={data.courseName} courseId={data.courseId} year={data.academicYear}/>
     )
    })
       
@@ -45,6 +45,10 @@ function ShowCourses() {
         <RoundedInput placeholder='Search' extraTailwindClasses='border-black' />
       </div>
       <div className='grid grid-cols-4 gap-20'>
+
+        {
+
+        }
         {/* <CourseCard
           name='Data Stuctures & Algorithms'
           year='2019/2020'
