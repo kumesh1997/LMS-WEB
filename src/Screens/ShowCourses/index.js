@@ -31,23 +31,24 @@ function ShowCourses() {
 
   const arr = data.map((data, index) => {
     return (
-
-
-      <CourseCard key={index} name={data.courseName} courseId={data.courseId} year={data.academicYear} onClickHandler={handleClick} />
-    )
-   })
-      
+      <CourseCard
+        key={index}
+        name={data.courseName}
+        courseId={data.courseId}
+        year={data.academicYear}
+        link={data.link}
+        onClickHandler={handleClick}
+      />
+    );
+  });
 
   return (
-    <div id='show-courses' className=' m-2 bg-violet-200'>
-      <div className=' flex justify-center mb-6 bg-lms-green p-2'>
+    <div id='show-courses' className='bg-gray-50'>
+      {/* <div className=' flex justify-center mb-6 bg-lms-green p-2'>
         <RoundedInput placeholder='Search' extraTailwindClasses='border-black' />
-      </div>
-      <div className='grid grid-cols-4 gap-20'>
-
-        {
-
-        }
+      </div> */}
+      <div className='grid grid-cols-4 gap-20 place-items-center mt-32 ml-24 mr-24'>
+        {}
         {/* <CourseCard
           name='Data Stuctures & Algorithms'
           year='2019/2020'

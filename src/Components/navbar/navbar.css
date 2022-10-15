@@ -10,7 +10,7 @@ body {
   background: #eee;
 }
 
-a {
+button a {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -86,7 +86,7 @@ a {
   display: inline-block;
 }
 
-#navbar li a {
+#navbar li button a {
   color: white;
   display: block;
   font-size: 0.7em;
@@ -101,7 +101,7 @@ a {
   -webkit-transition: all 0.5s ease;
 }
 
-#navbar li a:hover {
+#navbar li button a:hover {
   /* border-bottom: 1px solid rgb(28, 121, 184); */
   color: whitesmoke;
   transition: all 1s ease;
@@ -109,8 +109,8 @@ a {
 }
 
 /* Animated Bottom Line */
-#navbar li a:before,
-#navbar li a:after {
+#navbar li button a:before,
+#navbar li button a:after {
   content: '';
   position: absolute;
   width: 0%;
@@ -119,24 +119,24 @@ a {
   background: whitesmoke;
 }
 
-#navbar li a:before {
+#navbar li button a:before {
   left: 0;
   transition: 0.5s;
 }
 
-#navbar li a:after {
+#navbar li button a:after {
   background: whitesmoke;
   right: 0;
   /* transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); */
 }
 
-#navbar li a:hover:before {
+#navbar li button a:hover:before {
   background: whitesmoke;
   width: 100%;
   transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
 }
 
-#navbar li a:hover:after {
+#navbar li button a:hover:after {
   background: transparent;
   width: 100%;
   /* transition: 0s; */
@@ -344,7 +344,7 @@ a {
   position: relative;
 }
 
-.overlay-menu li a {
+.overlay-menu li button a {
   display: block;
   font-size: 1.8em;
   letter-spacing: 4px;
@@ -358,8 +358,8 @@ a {
     transition: 0.2s opacity 0.2s ease-out; */
 }
 
-.overlay-menu li a:hover,
-.overlay-menu li a:active {
+.overlay-menu li button a:hover,
+.overlay-menu li button a:active {
   color: rgb(28, 121, 184);
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
