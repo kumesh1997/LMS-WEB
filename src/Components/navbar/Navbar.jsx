@@ -15,18 +15,16 @@ const Navbar = () => {
             <div className='logo'>LMS Web Application</div>
             <ul id='menu'>
               <li>
-                <a href='#courses'>Courses</a>
+                <button><a href="#courses">Courses</a></button>
               </li>
               <li>
-                <a href='#marks'>Marks</a>
+                <button><a href="#marks">Marks</a></button>
               </li>
               <li>
-                {/* <a href='#login'>Login</a> */}
-                <button onClick={() => setButtonPopupL(true)}>Login</button>
+                <button onClick={() => setButtonPopupS(true)}><a href="#login">Login</a></button>
               </li>
               <li>
-                {/* <a href='#signUp'>Sign Up</a> */}
-                <button onClick={() => setButtonPopupS(true)}>Sign Up</button>
+                <button onClick={() => setButtonPopupL(true)}><a href="#signUp">Sign Up</a></button>
               </li>
             </ul>
           </div>

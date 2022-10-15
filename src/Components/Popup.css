@@ -21,6 +21,17 @@
 
 .popup-inner .close-btn{
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 20px;
+  right: 20px;
+}
+
+.close-btn{
+  background-color: red;
+  border-radius: 8px;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.pad{
+  margin-top: 20vh;
 }
