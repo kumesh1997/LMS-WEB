@@ -21,10 +21,10 @@ const Navbar = () => {
                 <button><a href="#marks">Marks</a></button>
               </li>
               <li>
-                <button onClick={() => setButtonPopupS(true)}><a href="#login">Login</a></button>
+                <button onClick={() => setButtonPopupL(true)}><a href="#login">Login</a></button>
               </li>
               <li>
-                <button onClick={() => setButtonPopupL(true)}><a href="#signUp">Sign Up</a></button>
+                <button onClick={() => setButtonPopupS(true)}><a href="#signUp">Sign Up</a></button>
               </li>
             </ul>
           </div>
@@ -52,8 +52,8 @@ const Navbar = () => {
       </div>
       <div>
         <center>
-          <PopupLogin trigger={buttonPopupS} setTrigger={setButtonPopupL}></PopupLogin>
-          <PopupSigup trigger={buttonPopupL} setTrigger={setButtonPopupS}></PopupSigup>
+          <PopupLogin trigger={buttonPopupL} setTrigger={setButtonPopupL}></PopupLogin>
+          <PopupSigup trigger={buttonPopupS} setTrigger={setButtonPopupS}></PopupSigup>
         </center>
       </div>
     </>
