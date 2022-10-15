@@ -4,8 +4,8 @@ import { Button } from 'react-bootstrap';
 
 const AddMarks = () => {
   return (
-    <div className='flex justify-center bg-violet-200'>
-      <div className='mb-10 mt-10 p-10 bg-white rounded xl:w-5/12 lg:w-6/12 sm: '>
+    <div className='flex justify-center bg-gray-50'>
+      <div className='mb-10 mt-10 p-10 bg-white rounded xl:w-5/12 lg:w-6/12 shadow-lg'>
         <h2>Add Marks</h2>
         <Form action=''>
           <Form.Group className='mb-3'>

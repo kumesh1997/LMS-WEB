@@ -6,8 +6,6 @@ import Enroll from '../Enroll';
 import axios from '../../axios';
 
 function ShowCourses() {
-
-
   const [open, setOpen] = useState(false);
   const [data, setData] = useState([]);
 
@@ -19,21 +17,21 @@ function ShowCourses() {
     setOpen(false);
   }
 
+  useEffect(() => {
+    axios
+      .get('http://localhost:3006/course/getCourses')
+      .then((response) => {
+        // console.log("Done")
+        //setCourses(response.data);
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
-   useEffect (() =>{
-    axios.get('http://localhost:3006/course/getCourses') 
-        .then(response => {
-         // console.log("Done")
-          //setCourses(response.data);
-         console.log(response.data);
-          setData(response.data)
-        })
-        .catch(error => 
-          console.log(error))
-   },[])
-
-   const arr = data.map((data,index) => {
+  const arr = data.map((data, index) => {
     return (
+
       <CourseCard key={index} name={data.courseName} courseId={data.courseId} year={data.academicYear}/>
     )
    })
@@ -55,9 +53,8 @@ function ShowCourses() {
           link='https://miro.medium.com/max/1200/1*2rKGJ6h1regwmfMcty3SLw.png'
           onClickHandler={handleClick}
         /> */}
-     
 
-{/* <CourseCard>
+        {/* <CourseCard>
         {
           courses.map((Acourse,key) => {
             <CourseCard key={key} name={Acourse.courseName}/>
