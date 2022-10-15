@@ -9,7 +9,7 @@ function ShowCourses() {
 
 
   const [open, setOpen] = useState(false);
-  const [courses, setCourses] = useState([]);
+  const [data, setData] = useState([]);
 
   function handleClick() {
     setOpen(true);
@@ -21,24 +21,23 @@ function ShowCourses() {
 
 
    useEffect (() =>{
-    const getCourses = async () => {
-      try {
-        let awaiVar = await axios.get('http://localhost:3006/course/getCourses') 
-        .then(function (response) {
-          console.log("Done")
-          console.log(response.data);
-          // console.log(response.data);
-          // setCourses(response.data);
+    axios.get('http://localhost:3006/course/getCourses') 
+        .then(response => {
+         // console.log("Done")
+          //setCourses(response.data);
+         console.log(response.data);
+          setData(response.data)
         })
-        .catch(function (error) {
-          console.log(error);
-        });
-      } catch (err) {
-        console.log(err);
-      }
-  }
-  getCourses();
-});
+        .catch(error => 
+          console.log(error))
+   },[])
+
+   const arr = data.map((data,index) => {
+    return (
+      <CourseCard key={index} name={data.courseName} courseId={data.courseId}/>
+    )
+   })
+      
 
   return (
     <div id='show-courses' className=' m-2 bg-violet-200'>
@@ -46,20 +45,30 @@ function ShowCourses() {
         <RoundedInput placeholder='Search' extraTailwindClasses='border-black' />
       </div>
       <div className='grid grid-cols-4 gap-20'>
-        <CourseCard
+        {/* <CourseCard
           name='Data Stuctures & Algorithms'
           year='2019/2020'
           link='https://miro.medium.com/max/1200/1*2rKGJ6h1regwmfMcty3SLw.png'
           onClickHandler={handleClick}
-        />
+        /> */}
+     
 
+{/* <CourseCard>
         {
           courses.map((Acourse,key) => {
-            <CourseCard key={key} name={""} year='2019/2020' onClickHandler={handleClick}/>
+            <CourseCard key={key} name={Acourse.courseName}/>
           })
         }
-       
-        
+        </CourseCard> */}
+        {/* {marks.map((student,key) => {
+            return (
+              <tr key={key}>
+                <td>{student.courseName}</td>
+                <td>{student.marks}</td>
+              </tr>
+            );
+          })} */}
+        {arr}
       </div>
 
       {open && <Enroll closeModel={CloseModel} />}
