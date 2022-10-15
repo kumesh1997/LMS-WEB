@@ -6,8 +6,6 @@ import Enroll from '../Enroll';
 import axios from '../../axios';
 
 function ShowCourses() {
-
-
   const [open, setOpen] = useState(false);
   const [data, setData] = useState([]);
 
@@ -19,41 +17,36 @@ function ShowCourses() {
     setOpen(false);
   }
 
+  useEffect(() => {
+    axios
+      .get('http://localhost:3006/course/getCourses')
+      .then((response) => {
+        // console.log("Done")
+        //setCourses(response.data);
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
-   useEffect (() =>{
-    axios.get('http://localhost:3006/course/getCourses') 
-        .then(response => {
-         // console.log("Done")
-          //setCourses(response.data);
-         console.log(response.data);
-          setData(response.data)
-        })
-        .catch(error => 
-          console.log(error))
-   },[])
-
-   const arr = data.map((data,index) => {
-    return (
-      <CourseCard key={index} name={data.courseName} courseId={data.courseId}/>
-    )
-   })
-      
+  const arr = data.map((data, index) => {
+    return <CourseCard key={index} name={data.courseName} courseId={data.courseId} />;
+  });
 
   return (
-    <div id='show-courses' className=' m-2 bg-violet-200'>
+    <div id='show-courses' className='bg-gray-50'>
       <div className=' flex justify-center mb-6 bg-lms-green p-2'>
         <RoundedInput placeholder='Search' extraTailwindClasses='border-black' />
       </div>
-      <div className='grid grid-cols-4 gap-20'>
+      <div className='grid grid-cols-4 gap-20 place-items-center'>
         {/* <CourseCard
           name='Data Stuctures & Algorithms'
           year='2019/2020'
           link='https://miro.medium.com/max/1200/1*2rKGJ6h1regwmfMcty3SLw.png'
           onClickHandler={handleClick}
         /> */}
-     
 
-{/* <CourseCard>
+        {/* <CourseCard>
         {
           courses.map((Acourse,key) => {
             <CourseCard key={key} name={Acourse.courseName}/>
