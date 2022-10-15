@@ -5,21 +5,7 @@ import axios from '../axios';
 
 
 const ShowMarks = () => {
-  // const marks = [
-  //   {
-  //     course: 'Information System Modelling',
-  //     marks: 87,
-  //   },
-  //   {
-  //     course: 'Operation Management',
-  //     marks: 90,
-  //   },
-  //   {
-  //     course: 'Data Stuctures & Algorithms',
-  //     marks: 56,
-  //   },
-  // ];
-
+ 
   const [marks, setMarks] = useState([]);
   const [stdName, setStdName] = useState("");
 
@@ -29,6 +15,7 @@ const ShowMarks = () => {
         let awaiVar = await axios.get('http://localhost:3006/marks/view/1') 
         .then(function (response) {
           setStdName(response.data[0].name);
+          console.log(response.data[0].name)
           setMarks(response.data);
         })
         .catch(function (error) {
