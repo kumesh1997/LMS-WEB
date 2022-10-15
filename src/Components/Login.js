@@ -5,10 +5,16 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import FormGroup from '@mui/material/FormGroup';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
 
-const Login = ({ handleChange }) => {
-    const paperStyle = { padding: 20, height: '80vh', width: 400, margin: "auto" }
+const Login = () => {
+     
+    const paperStyle = { padding: 20, height: '90vh', width: 400, margin: "auto" }
     const avatarStyle = { backgroundColor: '#3ac6a2' }
     const btnStyle = { margin: '8px 0' }
     const linkStyle = { textDecoration: 'none', margin: '8px 0' }
@@ -17,6 +23,7 @@ const Login = ({ handleChange }) => {
         password: '',
         remember: false
     }
+   
     const validationSchema = Yup.object().shape({
         username: Yup.string().email('Please enter valid email')
             .required("Required"),
@@ -31,6 +38,12 @@ const Login = ({ handleChange }) => {
 
         console.log(props)
     }
+    const [role, setRole] = React.useState('');
+    const handleChange = (event) => {
+        setRole(event.target.value);
+      };
+      
+    
     return (
         <Grid>
             <Paper style={paperStyle}>
@@ -41,6 +54,20 @@ const Login = ({ handleChange }) => {
                 <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                     {(props) => (
                         <Form>
+                              <FormControl sx={{mt:2,ml:0,  minWidth: 200 }} size="small">
+                                <InputLabel>Role</InputLabel>
+                                <Select
+                                    
+                                    id="roleId"
+                                    value={role}
+                                    label="Age"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value={"lecturer"}>Lecturer</MenuItem>
+                                    <MenuItem value={"student"}>Student</MenuItem>
+                                    <MenuItem value={"admin"}>Admin</MenuItem>
+                                </Select>
+                            </FormControl>
                             <Field as={TextField} label='Username' name='username' placeholder="Enter username"
                                 helperText={<ErrorMessage name="username" />}
                                 fullWidth required />
