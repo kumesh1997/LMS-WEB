@@ -4,21 +4,7 @@ import { useEffect } from 'react';
 import axios from '../axios';
 
 const ShowMarks = () => {
-  // const marks = [
-  //   {
-  //     course: 'Information System Modelling',
-  //     marks: 87,
-  //   },
-  //   {
-  //     course: 'Operation Management',
-  //     marks: 90,
-  //   },
-  //   {
-  //     course: 'Data Stuctures & Algorithms',
-  //     marks: 56,
-  //   },
-  // ];
-
+ 
   const [marks, setMarks] = useState([]);
   const [stdName, setStdName] = useState('');
 
@@ -34,6 +20,7 @@ const ShowMarks = () => {
           .catch(function (error) {
             console.log(error);
           });
+          
       } catch (err) {
         console.log(err);
       }
