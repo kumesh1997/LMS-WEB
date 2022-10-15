@@ -32,6 +32,7 @@ function ShowCourses() {
   const arr = data.map((data, index) => {
     return (
 
+
       <CourseCard key={index} name={data.courseName} courseId={data.courseId} year={data.academicYear}/>
     )
    })
