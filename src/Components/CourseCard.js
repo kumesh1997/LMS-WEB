@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CourseCard({ name = 'course Name', year = 'Year', link = 'link', onClickHandler }) {
+function CourseCard({ name = 'course Name',courseId='Course Id', link = 'link', onClickHandler }) {
   return (
     // <div id='card' className='p-2 xl:text-left lg:text-left sm:text-center border-b-2 border-gray-500 duration-1000 hover:bg-lms-gray hover:text-white' onClick={onClickHandler}>
     //   <div id='description-body'>
@@ -15,13 +15,14 @@ function CourseCard({ name = 'course Name', year = 'Year', link = 'link', onClic
         <img
           className='absolute inset-0 w-full h-full object-cover '
           src={link}
-          alt='Sunset in the mountains'
+         // alt='Sunset in the mountains'
         />
       </div>
 
       <div className='px-6 py-4 '>
         <div className='font-bold text-xl mb-2'>{name}</div>
-        <p className='text-gray-700 text-base'>{year}</p>
+        {/* <p className='text-gray-700 text-base'>{year}</p> */}
+        <p className='text-gray-700 text-base'>{courseId}</p>
       </div>
     </div>
   );
