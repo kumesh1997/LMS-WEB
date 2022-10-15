@@ -23,7 +23,7 @@ function ShowCourses() {
       .then((response) => {
         // console.log("Done")
         //setCourses(response.data);
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
       })
       .catch((error) => console.log(error));
@@ -33,7 +33,7 @@ function ShowCourses() {
     return (
 
 
-      <CourseCard key={index} name={data.courseName} courseId={data.courseId} year={data.academicYear}/>
+      <CourseCard key={index} name={data.courseName} courseId={data.courseId} year={data.academicYear} onClickHandler={handleClick} />
     )
    })
       
