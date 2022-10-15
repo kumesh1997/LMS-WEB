@@ -1,10 +1,12 @@
 import React from 'react';
 import './navbar.css';
 import PopupLogin from '../PopupLogin';
+import PopupSigup from '../PopupSigup';
 import { useState } from 'react';
 
 const Navbar = () => {
-  const [buttonPopup, setButtonPopup] = useState(false);
+  const [buttonPopupL, setButtonPopupL] = useState(false);
+  const [buttonPopupS, setButtonPopupS] = useState(false);
   return (
     <>
     <div>
@@ -20,10 +22,11 @@ const Navbar = () => {
             </li>
             <li>
               {/* <a href='#login'>Login</a> */}
-              <button onClick={() => setButtonPopup(true)}>Login</button>
+              <button onClick={() => setButtonPopupL(true)}>Login</button>
             </li>
             <li>
-              <a href='#signUp'>Sign Up</a>
+              {/* <a href='#signUp'>Sign Up</a> */}
+              <button onClick={() => setButtonPopupS(true)}>Sign Up</button>
             </li>
           </ul>
         </div>
@@ -51,7 +54,8 @@ const Navbar = () => {
     </div>
     <div>
       <center>
-        <PopupLogin trigger={buttonPopup} setTrigger={setButtonPopup}></PopupLogin>
+        <PopupLogin trigger={buttonPopupS} setTrigger={setButtonPopupL}></PopupLogin>
+        <PopupSigup trigger={buttonPopupL} setTrigger={setButtonPopupS}></PopupSigup>
       </center>
     </div>
     </>
