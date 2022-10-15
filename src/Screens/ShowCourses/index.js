@@ -36,12 +36,13 @@ function ShowCourses() {
         name={data.courseName}
         courseId={data.courseId}
         year={data.academicYear}
+        onClickHandler={handleClick}
       />
     );
   });
 
   return (
-    <div id='show-courses' className='bg-gray-50 pt-32 pl-20 pr-20'>
+    <div id='show-courses' className='bg-gray-50 pt-32 pl-32 pr-32'>
       <div className='grid grid-cols-4 gap-20 place-items-center'>
         {/* <CourseCard
           name='Data Stuctures & Algorithms'

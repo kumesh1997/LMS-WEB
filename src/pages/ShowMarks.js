@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from '../axios';
 
-
 const ShowMarks = () => {
   // const marks = [
   //   {
@@ -21,47 +20,50 @@ const ShowMarks = () => {
   // ];
 
   const [marks, setMarks] = useState([]);
-  const [stdName, setStdName] = useState("");
+  const [stdName, setStdName] = useState('');
 
-  useEffect (() =>{
+  useEffect(() => {
     const getMarks = async () => {
       try {
-        let awaiVar = await axios.get('http://localhost:3006/marks/view/1') 
-        .then(function (response) {
-          setStdName(response.data[0].name);
-          setMarks(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        let awaiVar = await axios
+          .get('http://localhost:3006/marks/view/1')
+          .then(function (response) {
+            setStdName(response.data[0].name);
+            setMarks(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       } catch (err) {
         console.log(err);
       }
-  }
-  getMarks();
-});
+    };
+    getMarks();
+  });
 
   return (
-    <div className=' p-20'>
-      <h2>{stdName}</h2>
-      <table class='table'>
-        <thead class='thead-dark'>
-          <tr>
-            <th scope='col'>Course Name</th>
-            <th scope='col'>Marks</th>
-          </tr>
-        </thead>
-        <tbody>
-          {marks.map((student,key) => {
-            return (
-              <tr key={key}>
-                <td>{student.courseName}</td>
-                <td>{student.marks}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div className='pl-64 pr-64 pt-20 pb-20 bg-gray-50 flex justify-center'>
+      <div className='mb-10 mt-10 p-10 bg-white rounded xl:w-5/12 lg:w-6/12 shadow-lg'>
+        <h2>{stdName}</h2>
+        <table class='table'>
+          <thead class='thead-dark'>
+            <tr>
+              <th scope='col'>Course Name</th>
+              <th scope='col'>Marks</th>
+            </tr>
+          </thead>
+          <tbody>
+            {marks.map((student, key) => {
+              return (
+                <tr key={key}>
+                  <td>{student.courseName}</td>
+                  <td>{student.marks}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

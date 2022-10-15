@@ -12,7 +12,7 @@ function Enroll({ course = 'Course Name', closeModel }) {
             <ModalCloseButton ClickHandler={closeModel} />
           </div>
           {/* Enroll page header */}
-          <div className=' text-center bg-lms-green p-2 text-white'>
+          <div className=' text-center bg-black p-2 text-white'>
             <h4>Enroll to {course}</h4>
           </div>
 
