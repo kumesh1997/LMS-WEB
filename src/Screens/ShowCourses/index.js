@@ -30,14 +30,18 @@ function ShowCourses() {
   }, []);
 
   const arr = data.map((data, index) => {
-    return <CourseCard key={index} name={data.courseName} courseId={data.courseId} />;
+    return (
+      <CourseCard
+        key={index}
+        name={data.courseName}
+        courseId={data.courseId}
+        year={data.academicYear}
+      />
+    );
   });
 
   return (
-    <div id='show-courses' className='bg-gray-50'>
-      <div className=' flex justify-center mb-6 bg-lms-green p-2'>
-        <RoundedInput placeholder='Search' extraTailwindClasses='border-black' />
-      </div>
+    <div id='show-courses' className='bg-gray-50 pt-32 pl-20 pr-20'>
       <div className='grid grid-cols-4 gap-20 place-items-center'>
         {/* <CourseCard
           name='Data Stuctures & Algorithms'
