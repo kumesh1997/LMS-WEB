@@ -42,6 +42,12 @@ const Navbar = () => {
               <a href='#services'>Services</a>
             </li>
             <li>
+              {/* <a href='#login'>Login</a> */}
+              <button onClick={() => setButtonPopupL(true)}>Login</button>
+            </li>
+            <li>
+              {/* <a href='#signUp'>Sign Up</a> */}
+              <button onClick={() => setButtonPopupS(true)}>Sign Up</button>
               <a href='#about'>About</a>
             </li>
             <li>

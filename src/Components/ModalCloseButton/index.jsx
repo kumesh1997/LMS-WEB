@@ -5,13 +5,15 @@ function ModalCloseButton({ ClickHandler }) {
     <button
       className='hover:scale-105 transform scale-100 duration-300 group'
       type='button'
-      onClick={ClickHandler}>
+      onClick={ClickHandler}
+    >
       <svg
         width='45'
         height='45'
         viewBox='0 0 71 71'
         fill='none'
-        className='group-hover:rotate-90 transform rotate-0 duration-300'>
+        className='group-hover:rotate-90 transform rotate-0 duration-300'
+      >
         <path
           fillRule='evenodd'
           clipRule='evenodd'

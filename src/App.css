@@ -1,7 +1,14 @@
 /* .App {
  // text-align: center;
 } */
-
+.sidenav{
+  z-index: 5;
+  width: '20%';
+}
+.content{
+  z-index: 3;
+  position: absolute;
+}
 
 .App-logo {
   height: 40vmin;
