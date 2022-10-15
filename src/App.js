@@ -4,6 +4,7 @@ import React from "react";
 // import ShowCourses from "./Screens/ShowCourses";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import SideNavbar from "./Components/SideNavbar";
+import Announcements from "./Screens/Teacher/Announcements";
 
 
 function App() {
@@ -17,16 +18,17 @@ function App() {
       {/* <SigninOutContainer/> */}
       {/* <ShowCourses /> */}
       {/* <Enroll /> */}
+      <Announcements />
 
-      <BrowserRouter>
-        <SideNavbar/>
+        {/* <SideNavbar/> */}
+      {/* <BrowserRouter>
           <Routes>
-            {/* <Route
-              component={<ShowCourses />}
-              path="/students/showcources"
-            /> */}
+            <Route
+              component={<Announcements />}
+              path="/"
+            />
           </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }
