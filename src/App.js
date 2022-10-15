@@ -5,6 +5,7 @@ import Enroll from './Screens/Enroll';
 import ShowCourses from './Screens/ShowCourses';
 import AddMarks from './Components/AddMarks/AddMarks';
 import Navbar from './Components/navbar/Navbar';
+import Footer from './Footer/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       {/* <Enroll /> */}
       <ShowMarks />
       <AddMarks />
+      <Footer></Footer>
     </div>
   );
 }
