@@ -13,7 +13,7 @@ const AddMarks = () => {
 
   useEffect(() => {
     const getSubId = async () => {
-      let data = await axios.get('http://localhost:3006/course/getCourses')
+      let info = await axios.get('http://localhost:3006/course/getCourses')
       .then((response) => {
         setSubjectIdList(response.data);
       })
@@ -24,15 +24,22 @@ const AddMarks = () => {
 
 
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = (e) => {
     const postMarks = async () => {
+e.preventDefault();
       let data = await axios.post('http://localhost:3006/marks/new',
       {
-        "marks" : 10,
-        "courseId" : "INTE 21212",
-        "userId" : 4
+      //   userId,
+      //  subjectId,
+      //   marks
+        
+        "userId":3,
+        "subjectId":"004",
+        "marks":58
+        
       })
       .then((response) => {
+        console.log(response.data)
         setSubjectIdList(response.data);
       })
       .catch((error) => console.log(error));
@@ -49,24 +56,29 @@ const AddMarks = () => {
         <Form action='' onSubmit={handleOnSubmit}>
           <Form.Group className='mb-3'>
             <Form.Label>Student Number</Form.Label>
-            <Form.Control type='text' placeholder='Student Number' onChange={(e) =>setUserId(e.target.value) } />
+            <Form.Control type='text' placeholder='Student Number' value={userId} onChange={(e) =>setUserId(e.target.value) } />
           </Form.Group>
           <Form.Group className='mb-3'>
             <Form.Label>Subject</Form.Label>
             <Form.Select>
+              value={subjectId}
               {
                 subjectIdList.map((subid,key) => {
                   return <option key={key}>{subid.courseId}</option>
+                  
                 })
+               
               }
+              onChange={(e) =>setSubjectId(e.target.value) }
+              
             </Form.Select>
           </Form.Group>
           <Form.Group className='mb-3'>
             <Form.Label>Marks</Form.Label>
-            <Form.Control type='text' placeholder='Add Marks' />
+            <Form.Control type='text' placeholder='Add Marks' value={marks} onChange={(e) =>setMarks(e.target.value) } />
           </Form.Group>
           <Button variant='primary' type='submit'>
-            Submit
+            Submit 
           </Button>
         </Form>
       </div>

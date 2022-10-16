@@ -8,25 +8,25 @@ const ShowMarks = () => {
   const [marks, setMarks] = useState([]);
   const [stdName, setStdName] = useState('');
 
-  useEffect(() => {
-    const getMarks = async () => {
-      try {
-        let awaiVar = await axios
-          .get('http://localhost:3006/marks/view/1')
-          .then(function (response) {
-            setStdName(response.data[0].name);
-            setMarks(response.data);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+  // useEffect(() => {
+  //   const getMarks = async () => {
+  //     try {
+  //       let awaiVar = await axios
+  //         .get('http://localhost:3006/marks/view/')
+  //         .then(function (response) {
+  //           setStdName(response.data[0]);
+  //           setMarks(response.data);
+  //         })
+  //         .catch(function (error) {
+  //           console.log(error);
+  //         });
           
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getMarks();
-  });
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   getMarks();
+  // });
 
   return (
     <div className='pl-64 pr-64 pt-20 pb-20 bg-gray-50 flex justify-center'>
