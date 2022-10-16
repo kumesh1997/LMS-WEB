@@ -26,16 +26,11 @@ const AddMarks = () => {
 
   const handleOnSubmit = (e) => {
     const postMarks = async () => {
-e.preventDefault();
-      let data = await axios.post('http://localhost:3006/marks/new',
-      {
-      //   userId,
-      //  subjectId,
-      //   marks
-        
-        "userId":3,
-        "subjectId":"004",
-        "marks":58
+      let dataste = await axios.post('http://localhost:3006/marks/new',
+      {  
+        "marks" : marks,
+        "courseId" : subjectId,
+        "userId" : userId
         
       })
       .then((response) => {
@@ -50,8 +45,8 @@ e.preventDefault();
 
   return (
 
-    <div className='flex justify-center bg-gray-50'>
-      <div className='mb-10 mt-10 p-10 bg-white rounded xl:w-5/12 lg:w-6/12 shadow-lg'>
+    <div className='flex justify-center bg-gray-50' id='addmarks'>
+      <div className='mt-10 p-10 bg-white rounded xl:w-5/12 lg:w-6/12 shadow-lg'>
         <h2>Add Marks</h2>
         <Form action='' onSubmit={handleOnSubmit}>
           <Form.Group className='mb-3'>
@@ -60,7 +55,7 @@ e.preventDefault();
           </Form.Group>
           <Form.Group className='mb-3'>
             <Form.Label>Subject</Form.Label>
-            <Form.Select>
+            <Form.Select  onChange={(e) =>setSubjectId(e.target.value) }>
               value={subjectId}
               {
                 subjectIdList.map((subid,key) => {
@@ -69,7 +64,7 @@ e.preventDefault();
                 })
                
               }
-              onChange={(e) =>setSubjectId(e.target.value) }
+             
               
             </Form.Select>
           </Form.Group>

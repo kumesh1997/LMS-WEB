@@ -60,7 +60,7 @@ function Announcements({closeModel})  {
         //   </div>
 
     //    {/* Form */}
-          <div className=' shadow-lg flex justify-center m-6 xl:p-4 lg:p-4 sm:p-0 xl:bg-lms-white lg:bg-lms-white sm:bg-transparent'>
+          <div className=' shadow-lg flex justify-center m-6 xl:p-4 lg:p-4 sm:p-0 xl:bg-lms-white lg:bg-lms-white sm:bg-transparent' id='announce'>
             <form id='form' onSubmit={formik.handleSubmit} noValidate>
               <div >
                 <input

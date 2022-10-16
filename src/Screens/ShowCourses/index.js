@@ -36,8 +36,9 @@ function ShowCourses() {
         name={data.courseName}
         courseId={data.courseId}
         year={data.academicYear}
-        link={data.link}
+        link='/enroll'
         onClickHandler={handleClick}
+        
       />
     );
   });
