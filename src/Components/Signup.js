@@ -32,8 +32,9 @@ const Signup = () => {
     const phnStyle = { marginTop: 5 }
     const headerStyle = { margin: 0 }
     const btnStyle = { margin: '8px 0' }
-    //const marginArround ={height:'3vh',width:80}
+    const marginArround ={height:'3vh',width:80}
     const initialValues = {
+        role:'',
         name: '',
         email: '',
         phone: '',
@@ -63,9 +64,9 @@ const Signup = () => {
     const marginTop = { marginTop: 8 }
   
 
-  const handleChange = (event) => {
-    setRole(event.target.value);
-  };
+//   const handleChange = (event) => {
+//     setRole(event.target.value);
+//   };
    
 
   const handleOnSubmit= () => {
@@ -83,7 +84,8 @@ const Signup = () => {
           
         })
         .then((response) => {
-          
+            console.log(response.data)
+            
         })
         .catch((error) => console.log(error));
       };
@@ -107,18 +109,18 @@ const Signup = () => {
                                     id="roleId"
                                     value={role}
                                     label="Age"
-                                    onChange={(e) => {setRole(e.target.value)}}
+                                    onChange={(e) => setRole(e.target.value)}
                                 >
                                     <MenuItem value={"lecturer"}>Lecturer</MenuItem>
                                     <MenuItem value={"student"}>Student</MenuItem>
                                     <MenuItem value={"admin"}>Admin</MenuItem>
                                 </Select>
                             </FormControl>
-                            <Field as={TextField} label='Name' name='name' placeholder="Enter your Name"
-                                helperText={<ErrorMessage name="name" />} fullWidth required  onChange={(e) => {setName(e.target.value)}}/>
+                            <Field as={TextField} label='Name' name='name' placeholder="Enter your Name" value={name} onChange={(e) => {setName(e.target.value)}}
+                                helperText={<ErrorMessage name="name" />} fullWidth required  />
 
-                            <Field as={TextField} label='Email' name='email' placeholder="Enter your Email"
-                                helperText={<ErrorMessage name="email" />} fullWidth required  onChange={(e) => {SetEmail(e.target.value)}}/>
+                            <Field as={TextField} label='Email' name='email' placeholder="Enter your Email" value={email}
+                                helperText={<ErrorMessage name="email" />} fullWidth required  onChange={(e) => SetEmail(e.target.value)}/>
 
                             <FormControl style={marginTop}>
                                 <FormLabel id="demo-controlled-radio-buttons-group">Gender</FormLabel>
@@ -127,7 +129,7 @@ const Signup = () => {
                                     name="controlled-radio-buttons-group"
                                     style={{ display: 'initial' }}
                                     helperText={<ErrorMessage name="radioBtn" />}
-                                    onChange={(e) => {setGender(e.target.value)}}
+                                    onChange={(e) => setGender(e.target.value)}
                                 >
                                     <Field as={FormControlLabel} value="female" control={<Radio />} name='radioBtn' label="Female" />
                                     <Field as={FormControlLabel} value="male" control={<Radio />} name='radioBtn' label="Male" />
@@ -136,16 +138,16 @@ const Signup = () => {
                             </FormControl>
 
 
-                            <Field as={TextField} label='Phone' placeholder="Enter your Mobile Number" name='phone'
-                                helperText={<ErrorMessage name="phone" style={phnStyle} />} fullWidth required  onChange={(e) => {setPhone(e.target.value)}}/>
+                            <Field as={TextField} label='Phone' placeholder="Enter your Mobile Number" name='phone' value={phone}
+                                helperText={<ErrorMessage name="phone" style={phnStyle} />} fullWidth required  onChange={(e) => setPhone(e.target.value)}/>
 
 
-                            <Field as={TextField} label='Address' placeholder="Enter your Address" name='address'
-                                helperText={<ErrorMessage name="address" />} fullWidth required onChange={(e) => {setAddress(e.target.value)}}/>
+                            <Field as={TextField} label='Address' placeholder="Enter your Address" name='address' value={address}
+                                helperText={<ErrorMessage name="address" />} fullWidth required onChange={(e) => setAddress(e.target.value)}/>
 
                             
-                            <Field as={TextField} label='Password' placeholder="Enter Passsword" type='password'
-                                helperText={<ErrorMessage name="password" />} name='password' fullWidth required  onChange={(e) => {setPassword(e.target.value)}}/>
+                            <Field as={TextField} label='Password' placeholder="Enter Passsword" type='password' value={password}
+                                helperText={<ErrorMessage name="password" />} name='password' fullWidth required  onChange={(e) => setPassword(e.target.value)}/>
 
                             <FormGroup>
                                 <Field as={FormControlLabel} control={<Checkbox defaultChecked name='accept' />} label="I accept the Terms and Condition" helperText={<ErrorMessage name="accept" />} name="accept" />
