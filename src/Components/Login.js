@@ -11,9 +11,13 @@ import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
+import { useState } from "react";
 
 const Login = () => {
-     
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+
+
     const paperStyle = { padding: 20, height: '90vh', width: 400, margin: "auto" }
     const avatarStyle = { backgroundColor: '#3ac6a2' }
     const btnStyle = { margin: '8px 0' }
@@ -39,6 +43,7 @@ const Login = () => {
         console.log(props)
     }
     const [role, setRole] = React.useState('');
+
     const handleChange = (event) => {
         setRole(event.target.value);
       };
@@ -68,10 +73,10 @@ const Login = () => {
                                     <MenuItem value={"admin"}>Admin</MenuItem>
                                 </Select>
                             </FormControl>
-                            <Field as={TextField} label='Username' name='username' placeholder="Enter username"
+                            <Field as={TextField} label='Username' name='username' placeholder="Enter username" value={name} onChange={(e) => {setName(e.target.value)}}
                                 helperText={<ErrorMessage name="username" />}
                                 fullWidth required />
-                            <Field as={TextField} label='Password' name='password' placeholder="Enter Passsword" type='password'
+                            <Field as={TextField} label='Password' name='password' placeholder="Enter Passsword" type='password' value={password} onChange={(e) => {setPassword(e.target.value)}}
                                 helperText={<ErrorMessage name="password" />}
                                 fullWidth required />
                             <Field as={FormControlLabel}

@@ -31,7 +31,7 @@ function App() {
 
       {/* <Login/> */}
       {/* <Signup/> */}
-      {/* <SigninOutContainer /> */}
+      <SigninOutContainer />
       
       {/* <Grid  className='sidenav'>
         <SideNavbar/>
@@ -39,7 +39,7 @@ function App() {
       <Grid lg={12} className='content'>
       
       {/* <Enroll /> */}
-      <Navbar teacher={teacture} />
+      {/* <Navbar teacher={teacture} /> */}
       <ShowCourses />
       <ShowMarks />
      { teacture && <AddMarks />}
