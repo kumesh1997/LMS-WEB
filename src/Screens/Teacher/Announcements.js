@@ -1,7 +1,7 @@
 import React from 'react'
 import { BorderedButton } from '../../Components/BorderedButton/BorderedButton'
 import ModalCloseButton from '../../Components/ModalCloseButton'
-import { useFormik } from 'formik'
+import { Formik, useFormik } from 'formik'
 import * as yup from 'yup'
 
 function Announcements({closeModel})  {
@@ -12,11 +12,11 @@ function Announcements({closeModel})  {
   
   const formik = useFormik({
     initialValues: {
-      studentEmail: 'abc@gmail.com',
-      subject: 'hi',
-      body:'hellloww'
+      studentEmail: '',
+      subject: '',
+      body:''
     },
-    validationSchema: yup.object({
+    validationSchema : yup.object({
 
       studentEmail: yup.string()
       .matches(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,"Invalid email!")
@@ -60,47 +60,59 @@ function Announcements({closeModel})  {
         //   </div>
 
     //    {/* Form */}
-          <div className=' shadow-lg flex justify-center m-6 xl:p-4 lg:p-4 sm:p-0 xl:bg-lms-white lg:bg-lms-white sm:bg-transparent' id='announce'>
-            <form id='form' onSubmit={formik.handleSubmit} noValidate>
-              <div >
-                <input
-                    type="text"
-                    placeholder='Student Email'
-                    className=' p-2 w-full'
-                    value={ formik.values.studentEmail}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                />
-                <div>
+          <div className=' shadow-lg flex justify-center m-6 xl:p-4 lg:p-4 sm:p-0 xl:bg-lms-white lg:bg-lms-white sm:bg-transparent'>
+            <Formik
+                // initialValues={initialValues}
+                // validationSchema={validationSchema}
+                // onSubmit={onSubmit}
+            >
+                {(props)=>(
+                  <form id='form' >
+                  <div className='mb-6'>
+                    <input
+                      type="text"
+                      placeholder='Student Email'
+                      className=' p-2 w-full mb-6'
+                      // value={ formik.values.studentEmail}
+                      // onBlur={formik.handleBlur}
+                      // onChange={formik.handleChange}
+                    />
+                 {/* <div>
                   {formik.touched.studentEmail && formik.errors.studentEmail ? (
                     <div className='red'>
                       {formik.errors.studentEmail}
                     </div>
-                  ):null}
-                </div>
-                <input
-                    type="text"
-                    placeholder='Email Subject'
-                    className=' p-2 w-full'
-                    value={formik.values.subject}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                  />
-                <input
-                    type="text"
-                    placeholder='Email Body'
-                    className=' p-2 w-full' 
-                    value={formik.values.body}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                  />
-                <BorderedButton children={'Submit'} Type={'type' } />
+                  ):null} 
+                </div> */}
+                    <textarea
+                        type="text"
+                        rows="2"
+                        placeholder='Email subject'
+                        className=' p-2 w-full mb-6'
+                        // value={formik.values.subject}
+                        // onBlur={formik.handleBlur}
+                        // onChange={formik.handleChange}
+                    />
+                    <textarea
+                        type="text"
+                        rows="5"
+                        placeholder='Email body -your message here..'
+                        className=' p-2 w-full mb-6' 
+                        // value={formik.values.body}
+                        // onBlur={formik.handleBlur}
+                        // onChange={formik.handleChange}
+                      />
+                    <BorderedButton children={'Submit'} Type={'type' }>Post Announcement</BorderedButton>
               </div>
-            </form>
+          </form>
+           )}
+            </Formik>
           </div>
+    
     //   </div>
     // </div>
   )
+  
 }
 
 export default Announcements
