@@ -11,7 +11,7 @@ function CourseCard({ name = 'course Name', courseId ="Course ID", year = 'Year'
           className='absolute inset-0 w-full h-full object-cover '
           src={link}
 
-          alt='Sunset in the mountains'
+          //alt='Sunset in the mountains'
         />
       </div>
 

@@ -4,7 +4,7 @@ import PopupLogin from '../PopupLogin';
 import PopupSigup from '../PopupSigup';
 import { useState } from 'react';
 
-const Navbar = () => {
+const Navbar = ({teacher = false}) => {
   const [buttonPopupL, setButtonPopupL] = useState(false);
   const [buttonPopupS, setButtonPopupS] = useState(false);
   return (
@@ -12,19 +12,27 @@ const Navbar = () => {
       <div>
         <nav id='navbar'>
           <div className='nav-wrapper'>
-            <div className='logo'>LMS Web Application</div>
+            <div className='logo'> <a href='#show-courses'>LMS Web Application</a></div>
             <ul id='menu'>
               <li>
-                <button><a href="#courses">Courses</a></button>
+                <button><a href="#showmarks">Your Marks</a></button>
+              </li>
+              { teacher &&
+              <li>
+                <button><a href="#addmarks">Add Marks</a></button>
+              </li>
+              }
+
+              { teacher &&
+              <li>
+                <button><a href="#announce">Announcement</a></button>
+              </li>
+              }
+              <li>
+                <button onClick={() => setButtonPopupL(true)}><a href="#login">Login</a></button>
               </li>
               <li>
-                <button><a href="#marks">Marks</a></button>
-              </li>
-              <li>
-                <button onClick={() => setButtonPopupS(true)}><a href="#login">Login</a></button>
-              </li>
-              <li>
-                <button onClick={() => setButtonPopupL(true)}><a href="#signUp">Sign Up</a></button>
+                <button onClick={() => setButtonPopupS(true)}><a href="#signUp">Sign Up</a></button>
               </li>
             </ul>
           </div>
@@ -58,8 +66,8 @@ const Navbar = () => {
       </div>
       <div>
         <center>
-          <PopupLogin trigger={buttonPopupS} setTrigger={setButtonPopupL}></PopupLogin>
-          <PopupSigup trigger={buttonPopupL} setTrigger={setButtonPopupS}></PopupSigup>
+          <PopupLogin trigger={buttonPopupL} setTrigger={setButtonPopupL}></PopupLogin>
+          <PopupSigup trigger={buttonPopupS} setTrigger={setButtonPopupS}></PopupSigup>
         </center>
       </div>
     </>
