@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [teacture, setTeacher] = useState(true);
+  const [teacture, setTeacher] = useState(false);
   return (
     <div className='flex'>
       {/* <Router>
