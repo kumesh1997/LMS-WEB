@@ -9,6 +9,7 @@ import Navbar from './Components/navbar/Navbar';
 import Announcements from './Screens/Teacher/Announcements';
 import SideNavbar from "./Components/SideNavbar";
 import { Grid } from '@material-ui/core';
+import Announcement from './Screens/Teacher/Announcement';
 import { useState } from 'react';
 
 function App() {
@@ -33,17 +34,21 @@ function App() {
       {/* <Signup/> */}
       {/* <SigninOutContainer /> */}
       
-      {/* <Grid  className='sidenav'>
+      <Grid  className='sidenav'>
         <SideNavbar/>
-      </Grid> */}
+      </Grid>
       <Grid lg={12} className='content'>
       
       {/* <Enroll /> */}
-      <Navbar teacher={teacture} />
+      {/* <Post/> */}
+      <Announcement /> 
+      {/* <ShowMarks /> */}
+      {/* <AddMarks /> */}
+      {/* <Navbar teacher={teacture} />
       <ShowCourses />
       <ShowMarks />
      { teacture && <AddMarks />}
-     { teacture && <Announcements />}
+     { teacture && <Announcements />} */}
      
     
       </Grid>
