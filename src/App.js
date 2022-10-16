@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SigninOutContainer from './Containers';
 import ShowMarks from './pages/ShowMarks';
 import Enroll from './Screens/Enroll';
@@ -8,6 +9,8 @@ import Navbar from './Components/navbar/Navbar';
 import Announcements from './Screens/Teacher/Announcements';
 import SideNavbar from "./Components/SideNavbar";
 import { Grid } from '@material-ui/core';
+import Post from './Screens/Teacher/Post';
+import Announcement from './Screens/Teacher/Announcement';
 
 function App() {
   return (
@@ -26,7 +29,8 @@ function App() {
       <Grid lg={12} className='content'>
       {/* <ShowCourses /> */}
       {/* <Enroll /> */}
-      <Announcements /> 
+      {/* <Post/> */}
+      <Announcement /> 
       {/* <ShowMarks /> */}
       {/* <AddMarks /> */}
       </Grid>
